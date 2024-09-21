@@ -5,3 +5,31 @@
 // HINT: Use the jest `resolves` matcher so that it is easier to work with async functions
 
 const counter = require('../src/counter')
+// Pattern 1: setTimeout all the file
+//jest.setTimeout(10000)
+
+// Pattern 2: setTimeout individually
+test("counter(5, 'increment') will eventualy return 5", () => {
+  expect(counter(5, 'increment')).resolves.toBe(5)
+}, 6000)
+
+test("counter(5, 'decrement') will eventualy return 0", () => {
+  expect(counter(5, 'decrement')).resolves.toBe(0)
+}, 6000)
+
+// Pattern 3: Use faketimes
+// const counter = require('../src/counter')
+
+// jest.useFakeTimers()
+
+// test('increment counter', async () => {
+//   const counterPromise = counter(3, 'increment')
+//   jest.runAllTimers()
+//   await expect(counterPromise).resolves.toBe(3)
+// })
+
+// test('decrement counter', async () => {
+//   const counterPromise = counter(3, 'decrement')
+//   jest.runAllTimers()
+//   await expect(counterPromise).resolves.toBe(0)
+// })
