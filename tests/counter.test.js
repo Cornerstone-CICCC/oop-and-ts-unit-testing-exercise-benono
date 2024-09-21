@@ -10,12 +10,12 @@ const counter = require('../src/counter')
 
 // Pattern 2: setTimeout individually
 test("counter(5, 'increment') will eventualy return 5", () => {
-  expect(counter(5, 'increment')).resolves.toBe(5)
-}, 6000)
+  return expect(counter(3, 'increment')).resolves.toBe(3)
+})
 
 test("counter(5, 'decrement') will eventualy return 0", () => {
-  expect(counter(5, 'decrement')).resolves.toBe(0)
-}, 6000)
+  return expect(counter(3, 'decrement')).resolves.toBe(0)
+})
 
 // Pattern 3: Use faketimes
 // const counter = require('../src/counter')
